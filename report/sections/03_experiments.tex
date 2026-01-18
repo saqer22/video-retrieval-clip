@@ -1,0 +1,24 @@
+\section{Experimental Setup}
+\label{sec:experiments}
+
+\subsection{Dataset}
+For demonstration purposes we generate a small synthetic dataset of 20 short videos (2 seconds, 64$\times$64) depicting colored shapes moving in various directions. Each video has 3 captions. The split is 12/4/4 (train/val/test).
+
+Our pipeline also supports MSVD \cite{chen2011msvd} and MSR-VTT subsets \cite{xu2016msrvtt} when locally available.
+
+\subsection{Implementation Details}
+\begin{itemize}
+    \item \textbf{Backbone}: OpenCLIP ViT-B/32 with OpenAI pre-trained weights.
+    \item \textbf{Frames}: Extracted with OpenCV at a target size of 64$\times$64 (demo) or 224$\times$224.
+    \item \textbf{Frame Count}: We test 1, 4, and 8 uniformly sampled frames.
+    \item \textbf{Device}: CPU by default, auto-detect GPU.
+    \item \textbf{Reproducibility}: Deterministic seed across NumPy, PyTorch.
+\end{itemize}
+
+\subsection{Baselines}
+\begin{enumerate}
+    \item \textbf{Random}: Videos ranked randomly.
+    \item \textbf{Single-frame CLIP}: Only the middle frame.
+    \item \textbf{Multi-frame (4/8)}: Mean over 4 or 8 frames.
+    \item \textbf{Proposed}: Multi-frame with optional projection head (head off in demo to stay fast).
+\end{enumerate}

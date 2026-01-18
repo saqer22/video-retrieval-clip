@@ -1,0 +1,22 @@
+{
+  "random": {
+    "text_and_search_ms": 0.0,
+    "search_only_ms": 0.0
+  },
+  "single_frame": {
+    "text_and_search_ms": 143.3051416665118,
+    "search_only_ms": 0.08729166650785676
+  },
+  "multi_frame_4": {
+    "text_and_search_ms": 148.38673333330613,
+    "search_only_ms": 0.0729083332468387
+  },
+  "multi_frame_8": {
+    "text_and_search_ms": 116.27820833336955,
+    "search_only_ms": 0.07942499996715924
+  },
+  "proposed": {
+    "text_and_search_ms": 105.00643333330117,
+    "search_only_ms": 0.06264166646966866
+  }
+}

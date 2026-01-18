@@ -1,0 +1,12 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We presented a portable, CPU-first text-to-video retrieval pipeline that:
+\begin{enumerate}
+    \item Requires no external data downloads or GPU for a complete end-to-end demonstration.
+    \item Leverages frozen CLIP encoders with mean pooling of sampled frames.
+    \item Computes standard retrieval metrics (Recall@K, MedR, MeanR, mAP) and latency.
+    \item Generates a complete LaTeX report with auto-filled tables.
+\end{enumerate}
+
+Future work could include training the optional projection head on larger datasets and exploring temporal attention mechanisms.

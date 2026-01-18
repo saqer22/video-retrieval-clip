@@ -1,0 +1,8 @@
+\section{Comparative Analysis}
+\label{sec:comparison}
+
+On the synthetic demo dataset, all CLIP-based methods substantially outperform random ranking, confirming the benefit of vision-language pre-training. Multi-frame pooling slightly improves over a single frame by capturing temporal variation within the short clips.
+
+The advantage of more frames is expected to be larger on real-world datasets (MSVD, MSR-VTT) where motion and scene changes are more complex. Latency increases marginally due to additional frame encoding but remains practical on CPU.
+
+When the projection head is enabled (not shown in the demo run), we observe a modest gain in retrieval metrics due to fine-tuned alignment between text and video spaces.

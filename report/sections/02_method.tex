@@ -1,0 +1,16 @@
+\section{Method / Architecture}
+\label{sec:method}
+
+\subsection{Dual-Encoder Framework}
+We adopt a dual-encoder design with frozen CLIP encoders:
+\begin{itemize}
+    \item \textbf{Text encoder}: CLIP ViT-B/32 text transformer. Each query is tokenized and encoded into a 512-dimensional embedding.
+    \item \textbf{Video encoder}: For each video, $N$ uniformly sampled frames are encoded with CLIP ViT-B/32 image encoder.
+    \item \textbf{Aggregation}: Mean pooling across frame embeddings yields a single video representation.
+\end{itemize}
+
+\subsection{Optional Projection Head}
+An optional two-layer MLP head (512 $\to$ 256 $\to$ 256) can be trained on top of the pooled video embedding while keeping CLIP frozen. Training is done with InfoNCE loss for 2–3 epochs, which is fast even on CPU.
+
+\subsection{Retrieval}
+Given a query, similarity is computed as the cosine between the normalized query embedding and each precomputed video embedding. Candidates are sorted by descending similarity.

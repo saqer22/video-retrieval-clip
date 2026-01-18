@@ -1,0 +1,53 @@
+run:
+  name: msrvtt_subset
+  run_id: null
+  output_dir: outputs/runs
+
+seed: 1234
+
+dataset:
+  name: msrvtt_subset
+  root: data/msrvtt_subset
+  # Expect videos under data/msrvtt_subset/videos and captions.jsonl with video_id/caption
+  frame_size: 224
+  fps: 25
+  duration_seconds: 10
+  captions_per_video: 20
+  train_split: 600
+  val_split: 50
+  test_split: 50
+
+preprocess:
+  frames_root: data/msrvtt_subset/frames
+  target_size: 224
+  frame_sample_rate: 2
+  max_frames: 32
+
+model:
+  clip_model: ViT-B-32
+  pretrained: openai
+  frame_count: 8
+  device: auto
+  head_dim: 256
+  train_head_epochs: 2
+  learning_rate: 1.0e-4
+  batch_size: 16
+
+eval:
+  topk: [1, 5, 10]
+  baselines:
+    - name: random
+      frame_count: 0
+    - name: single_frame
+      frame_count: 1
+    - name: multi_frame_4
+      frame_count: 4
+    - name: multi_frame_8
+      frame_count: 8
+    - name: proposed
+      frame_count: 8
+      head: true
+
+report:
+  enable_figs: true
+  latexmk_path: null

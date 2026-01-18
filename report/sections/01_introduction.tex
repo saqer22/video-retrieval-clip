@@ -1,0 +1,15 @@
+\section{Introduction}
+\label{sec:intro}
+
+Text-to-video retrieval aims to rank a corpus of videos by their semantic relevance to a user's natural-language query.
+The task is fundamental to multimedia search, video understanding, and content recommendation.
+
+State-of-the-art approaches leverage vision-language pre-training, most prominently CLIP \cite{radford2021clip}, which learns a joint embedding space for images and text.
+Our method extends CLIP to the video domain by sampling frames, encoding them independently, and aggregating into a single video embedding via mean pooling.
+
+This report presents:
+\begin{enumerate}
+    \item A fully offline, CPU-friendly evaluation pipeline.
+    \item Baselines (random, single-frame CLIP, multi-frame CLIP) compared against our proposed method.
+    \item Metrics including Recall@K, MedR, MeanR, mAP, and retrieval latency.
+\end{enumerate}

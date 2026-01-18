@@ -1,0 +1,74 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Environment variables
+.env
+.env.local
+
+# Data files (large datasets)
+data/*/videos/
+data/*/frames/
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# Model files
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+
+# Output files
+outputs/runs/*/embeddings.npy
+outputs/runs/*/*.npy
+outputs/runs/*/figs/
+outputs/runs/*/tables/
+
+# Keep structure but ignore large outputs
+!outputs/runs/.gitkeep
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.pdf
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# OS
+.DS_Store
+Thumbs.db

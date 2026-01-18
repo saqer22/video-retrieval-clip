@@ -1,0 +1,53 @@
+run:
+  name: demo
+  run_id: null  # auto-generated timestamp if null
+  output_dir: outputs/runs
+
+seed: 1234
+
+dataset:
+  name: demo
+  root: data/demo
+  num_videos: 20
+  frame_size: 64
+  fps: 4
+  duration_seconds: 2
+  captions_per_video: 3
+  train_split: 12
+  val_split: 4
+  test_split: 4
+
+preprocess:
+  frames_root: data/demo/frames
+  target_size: 64
+  frame_sample_rate: 1
+  max_frames: 16
+
+model:
+  clip_model: ViT-B-32
+  pretrained: openai
+  frame_count: 4
+  device: auto
+  head_dim: 256
+  train_head_epochs: 0  # kept off for speed by default
+  learning_rate: 1.0e-3
+  batch_size: 4
+
+eval:
+  topk: [1, 5, 10]
+  baselines:
+    - name: random
+      frame_count: 0
+    - name: single_frame
+      frame_count: 1
+    - name: multi_frame_4
+      frame_count: 4
+    - name: multi_frame_8
+      frame_count: 8
+    - name: proposed
+      frame_count: 4
+      head: false
+
+report:
+  enable_figs: true
+  latexmk_path: null  # auto-detect if null

@@ -1,0 +1,17 @@
+\section{Results}
+\label{sec:results}
+
+The following table summarizes the performance of each baseline on the demo dataset (test split). The metrics are averaged over all queries.
+
+\input{tables/results_table.tex}
+
+\subsection{Retrieval Time}
+Average per-query retrieval time (text encoding + search):
+
+\input{tables/time_table.tex}
+
+\subsection{Ablation: Frame Count}
+We examine how the number of sampled frames affects recall. Increasing frame count improves Recall@1 on the synthetic data, though at diminishing returns.
+
+\input{tables/ablation_table.tex}
+
